@@ -1,0 +1,57 @@
+\documentclass[a4paper, dvipdfmx]{jarticle} 
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{listings,jvlisting} % for source code
+\usepackage{url}
+\usepackage{float}
+\usepackage{comment} 
+\usepackage{bm} % for bold in math
+
+\lstset{
+  basicstyle={\ttfamily},
+  identifierstyle={\small},
+  commentstyle={\smallitshape},
+  keywordstyle={\small\bfseries},
+  ndkeywordstyle={\small},
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},
+  numbers=left,
+  xrightmargin=0zw,
+  xleftmargin=3zw,
+  numberstyle={\scriptsize},
+  stepnumber=1,
+  numbersep=1zw,
+  lineskip=-0.5ex
+}
+
+\topmargin = 0mm
+\oddsidemargin = 5mm
+\textwidth = 152mm
+\textheight = 240mm
+
+% サブセクションを"問1,問2"にする
+\renewcommand{\thesubsection}{問\arabic{subsection}}
+
+% 式番号を"章.番号"にする
+\makeatletter
+  \renewcommand{\theequation}{\arabic{subsection}.\arabic{equation}}
+  \@addtoreset{equation}{subsection}
+\makeatother
+
+% end of settings
+%-----------------------------------------------------------------------
+
+
+\title{title}
+
+\author{name}
+
+\begin{document}
+
+\maketitle
+
+\bibliography{hoge}
+\bibliographystyle{junsrt} 
+\end{document}
