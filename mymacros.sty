@@ -1,0 +1,164 @@
+% packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{bm,bbm}
+\usepackage{derivative}
+\usepackage{physics2}
+\usephysicsmodule{ab.legacy}
+\usephysicsmodule{op.legacy}
+\usephysicsmodule{nabla.legacy}
+
+% mathbb letters (common)
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\1}{\mathbbm{1}}
+
+% mathbb letters
+\newcommand{\Abb}{\mathbb{A}}
+\newcommand{\Cbb}{\mathbb{C}}
+\newcommand{\Dbb}{\mathbb{D}}
+\newcommand{\Ebb}{\mathbb{E}}
+\newcommand{\Fbb}{\mathbb{F}}
+\newcommand{\Gbb}{\mathbb{G}}
+\newcommand{\Hbb}{\mathbb{H}}
+\newcommand{\Ibb}{\mathbb{I}}
+\newcommand{\Jbb}{\mathbb{J}}
+\newcommand{\Kbb}{\mathbb{K}}
+\newcommand{\Lbb}{\mathbb{L}}
+\newcommand{\Mbb}{\mathbb{M}}
+\newcommand{\Nbb}{\mathbb{N}}
+\newcommand{\Obb}{\mathbb{O}}
+\newcommand{\Pbb}{\mathbb{P}}
+\newcommand{\Qbb}{\mathbb{Q}}
+\newcommand{\Rbb}{\mathbb{R}}
+\newcommand{\Sbb}{\mathbb{S}}
+\newcommand{\Tbb}{\mathbb{T}}
+\newcommand{\Ubb}{\mathbb{U}}
+\newcommand{\Vbb}{\mathbb{V}}
+\newcommand{\Wbb}{\mathbb{W}}
+\newcommand{\Xbb}{\mathbb{X}}
+\newcommand{\Ybb}{\mathbb{Y}}
+\newcommand{\Zbb}{\mathbb{Z}}
+
+% mathcal letters
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cQ}{\mathcal{Q}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\cY}{\mathcal{Y}}
+\newcommand{\cZ}{\mathcal{Z}}
+
+% Dynamically generates \{x}hat macros, where {x} is any letter in a-z,A-Z.
+% E.g: write \xhat to generate \widehat{x}.
+\def\mdefhat#1{\expandafter\def\csname #1hat\endcsname{\widehat{#1}}}
+\def\mdefallhat#1{\ifx#1\mdefallhat\else\mdefhat#1\expandafter\mdefallhat\fi}
+\mdefallhat abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\mdefallhat
+
+% Dynamically generates \{x}bar macros, where {x} is any letter in a-z
+% E.g: write \xbar to generate \bar{x}.
+\def\mdefbar#1{\expandafter\def\csname #1bar\endcsname{\bar{#1}}}
+\def\mdefallbar#1{\ifx#1\mdefallbar\else\mdefbar#1\expandafter\mdefallbar\fi}
+\mdefallbar abcdefghijklmnopqrstuvwxyz\mdefallbar
+
+% Dynamically generates \{x}tld macros, where {x} is any letter in a-z, A-Z
+% E.g: write \xtld to generate \widetilde{x}.
+\def\mdeftd#1{\expandafter\def\csname #1tld\endcsname{\widetilde{#1}}}
+\def\mdefalltd#1{\ifx#1\mdefalltd\else\mdeftd#1\expandafter\mdefalltd\fi}
+\mdefalltd abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\mdefalltd
+
+% arghoge
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\arginf}{arginf}
+\DeclareMathOperator*{\argsup}{argsup}
+
+%% var letters
+% lower
+\newcommand{\veps}{\varepsilon}
+\newcommand{\vkap}{\varkappa}
+\newcommand{\vphi}{\varphi}
+\newcommand{\vpi}{\varpi}
+\newcommand{\vrho}{\varrho}
+\newcommand{\vthe}{\vartheta}
+% upper
+\newcommand{\vGam}{\varGamma}
+\newcommand{\vDel}{\varDelta}
+\newcommand{\vLam}{\varLambda}
+\newcommand{\vPsi}{\varPsi}
+\newcommand{\vPi}{\varPi}
+\newcommand{\vPhi}{\varPhi}
+\newcommand{\vSig}{\varSigma}
+
+% expectation, probability and variance, with optional subscripts
+\newcommand{\Expec}[2][]{
+	\ifx\\#1\\
+		\mathbb{E} \left[ #2 \right]
+	\else
+		\mathbb{E}_{#1} \left[ #2 \right]
+	\fi
+}
+\newcommand{\Prob}[2][]{
+	\ifx\\#1\\
+		\mathrm{Prob} \left( #2 \right)
+	\else
+		\mathrm{Prob}_{#1} \left( #2 \right)
+	\fi
+}
+\newcommand{\Var}[2][]{
+	\ifx\\#1\\
+		\mathrm{Var}\left( #2 \right)
+	\else
+		\mathrm{Var}_{#1}\left( #2 \right)
+	\fi
+}
+
+% matrices
+\newcommand{\pmx}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\newcommand{\bmx}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\newcommand{\Bmx}[1]{\begin{Bmatrix} #1 \end{Bmatrix}}
+
+% operators
+% various shorthand macros
+\newcommand{\dist}{\mathrm{dist}}
+\newcommand{\proj}{\mathrm{proj}}
+\newcommand{\conv}{\mathrm{conv}}
+\newcommand{\iid}{\overset{\mathrm{i.i.d.}}{\sim}}
+\newcommand{\vspan}{\mathrm{span}}
+\newcommand{\sign}{\mathrm{sign}}
+\newcommand{\range}{\mathrm{range}}
+\newcommand{\psd}[1]{\Sbb^{#1}_+}
+\newcommand{\pd}[1]{\Sbb^{#1}_{++}}
+\newcommand{\kl}[2]{\mathrm{KL}\left({#1} \ |\ {#2}\right)}
+
+% macros for delimited expressions
+\newcommand{\opnorm}[1] {\norm{ #1 }_{\mathrm{op}}}
+\newcommand{\frobnorm}[1]{\norm{ #1 }_{\mathrm{F}}}
+\newcommand{\infnorm}[1]{\norm{ #1 }_{\infty}}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+% \DeclarePairedDelimiter{\eval}{.}{|}

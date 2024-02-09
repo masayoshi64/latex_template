@@ -1,0 +1,7 @@
+#!/usr/bin/env perl
+$pdf_mode         = 3;
+$latex            = 'pdflatex -synctex=1 -file-line-error -halt-on-error -interaction=nonstopmode %O %S';
+$latex_silent     = 'pdflatex -halt-on-error -interaction=batchmode';
+$bibtex           = 'bibtex';
+$dvipdf           = 'dvipdfmx %O -o %D %S';
+$makeindex        = 'mendex %O -o %D %S';
